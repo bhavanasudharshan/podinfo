@@ -13,5 +13,5 @@ spec:
   metrics:
     - type: Pods
       pods:
-        metricName: http_requests_per_second
+        metricName: flask_http_request_per_second
         targetAverageValue: 10

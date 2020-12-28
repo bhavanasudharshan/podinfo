@@ -15,7 +15,7 @@ spec:
         app: loadtester
       annotations:
         prometheus.io/scrape: "true"
-        prometheus.io/port: "8080"
+        prometheus.io/port: "5000"
     spec:
       containers:
         - name: loadtester
@@ -23,10 +23,10 @@ spec:
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
-              containerPort: 8080
+              containerPort: 5000
           command:
             - ./loadtester
-            - -port=8080
+            - -port=5000
             - -log-level=info
             - -timeout=1h
           livenessProbe:
@@ -37,7 +37,7 @@ spec:
                 - --tries=1
                 - --timeout=4
                 - --spider
-                - http://localhost:8080/healthz
+                - http://localhost:5000/healthz
             timeoutSeconds: 5
           readinessProbe:
             exec:
@@ -47,7 +47,7 @@ spec:
                 - --tries=1
                 - --timeout=4
                 - --spider
-                - http://localhost:8080/healthz
+                - http://localhost:5000/healthz
             timeoutSeconds: 5
           resources:
             requests:

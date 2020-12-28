@@ -16,7 +16,7 @@ spec:
     rules:
       default: false
       custom:
-        - seriesQuery: 'http_requests_total{kubernetes_namespace!="",kubernetes_pod_name!=""}'
+        - seriesQuery: 'flask_http_request_total{kubernetes_namespace!="",kubernetes_pod_name!=""}'
           resources:
             overrides:
               kubernetes_namespace: {resource: "namespace"}
